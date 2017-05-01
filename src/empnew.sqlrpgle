@@ -73,41 +73,5 @@ Dcl-Proc EMP_ValidateInput;
 END-PROC;
 
 Dcl-Proc EMP_CreateRecord;
-  monitor;
-    EXEC SQL
-      INSERT INTO
-        SAMPLE/EMPLOYEE (
-          EMPNO,
-          FIRSTNME,
-          MIDINIT,
-          LASTNAME,
-          WORKDEPT,
-          PHONENO,
-          HIREDATE,
-          JOB,
-          EDLEVEL,
-          SEX,
-          BIRTHDATE,
-          SALARY,
-          BONUS,
-          COMM
-        ) VALUES (
-          :Emp_Ds.EMPNO,
-          :Emp_Ds.FirstName,
-          :Emp_Ds.MidInit,
-          :Emp_Ds.LastName,
-          :Emp_Ds.WorkDept,
-          :Emp_Ds.PhoneExt,
-          :Emp_Ds.hiredate,
-          :Emp_Ds.Job,
-          :Emp_Ds.EdlLvl,
-          :Emp_Ds.Gender,
-          :Emp_Ds.DOB,
-          :Emp_Ds.Salary,
-          :Emp_Ds.Bonus,
-          :Emp_Ds.Comm
-        );
-  on-error *all;
-    dsply 'err';
-  endmon;
+  //Insert data into SAMPLE/EMPLOYEE
 END-PROC;
