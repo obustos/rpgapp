@@ -58,13 +58,10 @@ Dcl-Proc EMP_ValidateInput;
   Emp_Ds.PhoneExt = EMPEXT;
   Emp_Ds.Job = EMPJOB;
   Emp_Ds.Gender = NEWGENDER;
-  Monitor;
-    Emp_Ds.Salary = %Dec(EMPBASE:9:2);
-    Emp_Ds.Bonus = %Dec(EMPBONUS:9:2);
-    Emp_Ds.Comm = %Dec(EMPCOMM:9:2);
-  On-Error *All;
-    Return *Off;
-  Endmon;
+  
+  Emp_Ds.Salary = %Dec(EMPBASE:9:2);
+  Emp_Ds.Bonus = %Dec(EMPBONUS:9:2);
+  Emp_Ds.Comm = %Dec(EMPCOMM:9:2);
 
   Emp_Ds.hiredate = %Date();
   Emp_Ds.DOB = %Date();
