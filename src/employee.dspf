@@ -1,0 +1,79 @@
+     A          R EMP                       CA12(12)
+     A                                  2 33'Employee Display'
+     A                                      COLOR(WHT)
+     A            EMPNO          6   B  4 15
+     A            EMPNAME       30   O  4 26
+     A            GENDER         6   O  4 61
+     A                                  7 11'Work information'
+     A                                      COLOR(WHT)
+     A            EMPDEPT        3   O  9 35
+     A                                  9 14'Work department'
+     A                                      COLOR(WHT)
+     A                                 11 14'Phone extension'
+     A                                      COLOR(WHT)
+     A            EMPEXT         4   O 11 34
+     A                                 12 14'Job title'
+     A                                      COLOR(WHT)
+     A            EMPJOB         8   O 12 30
+     A                                  7 43'Salary information'
+     A                                      COLOR(WHT)
+     A                                  9 46'Base salary'
+     A                                      COLOR(WHT)
+     A                                 10 46'Bonus'
+     A                                      COLOR(WHT)
+     A                                 11 46'Commission'
+     A                                      COLOR(WHT)
+     A            EMPBASE       10   O  9 61
+     A            EMPBONUS      10   O 10 61
+     A            EMPCOMM       10   O 11 61
+     A                                 13 46'Total payout'
+     A                                      COLOR(WHT)
+     A            EMPPAY        10   O 13 61
+     A                                 23 11'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            EMPDEPTNAM    24   O 10 14
+     A          R NEWEMP                    CA12(12)
+     A                                  2 34'Employee Entry'
+     A                                      COLOR(WHT)
+     A            EMPNO          6   B  6 35
+     A                                 10 11'Work information'
+     A                                      COLOR(WHT)
+     A            EMPDEPT        3   B 12 35
+     A                                 12 14'Work department'
+     A                                      COLOR(WHT)
+     A                                 13 14'Phone extension'
+     A                                      COLOR(WHT)
+     A            EMPEXT         4   B 13 34
+     A                                 14 14'Job title'
+     A                                      COLOR(WHT)
+     A            EMPJOB         8   B 14 30
+     A                                 10 43'Salary information'
+     A                                      COLOR(WHT)
+     A                                 12 46'Base salary'
+     A                                      COLOR(WHT)
+     A                                 13 46'Bonus'
+     A                                      COLOR(WHT)
+     A                                 14 46'Commission'
+     A                                      COLOR(WHT)
+     A            EMPBASE       10   B 12 61
+     A            EMPBONUS      10   B 13 61
+     A            EMPCOMM       10   B 14 61
+     A                                 23 11'F12=Cancel'
+     A                                      COLOR(BLU)
+     A                                  4 11'Personal Information'
+     A                                      COLOR(WHT)
+     A                                  6 14'Employee reference'
+     A                                      COLOR(WHT)
+     A            NEWGENDER      1   B  7 35
+     A                                  7 14'Gender'
+     A                                      COLOR(WHT)
+     A                                  6 44'First name'
+     A                                      COLOR(WHT)
+     A                                  7 44'Middle initial'
+     A                                      COLOR(WHT)
+     A                                  8 44'Last name'
+     A                                      COLOR(WHT)
+     A            FIRSTNAME     12   B  6 59
+     A            MIDDLEINIT     1   B  7 59
+     A            LASTNAME      12   B  8 59
+
