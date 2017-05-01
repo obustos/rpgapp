@@ -13,9 +13,9 @@ Dcl-Ds Emp_Ds Qualified;
   PhoneExt  Char(4);
   hiredate  Date;
   Job       Char(8);
-  EdlLvl    Int(3) Inz(0); //ignore
+  EdlLvl    Bindec(2) Inz(0); //ignore
   Gender    Char(1);
-  DOB       Date   Inz(*Loval);
+  DOB       Date;
   Salary    Zoned(9:2);
   Bonus     Zoned(9:2);
   Comm      Zoned(9:2); //Commission
@@ -67,31 +67,47 @@ Dcl-Proc EMP_ValidateInput;
   Endmon;
 
   Emp_Ds.hiredate = %Date();
+  Emp_Ds.DOB = %Date();
 
   Return *On;
 END-PROC;
 
 Dcl-Proc EMP_CreateRecord;
-
-  EXEC SQL
-    INSERT INTO
-      SAMPLE/EMPLOYEE (
-        EMPNO,
-        FIRSTNME,
-        MIDINIT,
-        LASTNAME,
-        WORKDEPT,
-        PHONENO,
-        HIREDATE,
-        JOB,
-        EDLEVEL,
-        SEX,
-        BIRTHDATE,
-        SALARY,
-        BONUS,
-        COMM
-      ) VALUES (
-        :Emp_Ds
-      );
-
+  monitor;
+    EXEC SQL
+      INSERT INTO
+        SAMPLE/EMPLOYEE (
+          EMPNO,
+          FIRSTNME,
+          MIDINIT,
+          LASTNAME,
+          WORKDEPT,
+          PHONENO,
+          HIREDATE,
+          JOB,
+          EDLEVEL,
+          SEX,
+          BIRTHDATE,
+          SALARY,
+          BONUS,
+          COMM
+        ) VALUES (
+          :Emp_Ds.EMPNO,
+          :Emp_Ds.FirstName,
+          :Emp_Ds.MidInit,
+          :Emp_Ds.LastName,
+          :Emp_Ds.WorkDept,
+          :Emp_Ds.PhoneExt,
+          :Emp_Ds.hiredate,
+          :Emp_Ds.Job,
+          :Emp_Ds.EdlLvl,
+          :Emp_Ds.Gender,
+          :Emp_Ds.DOB,
+          :Emp_Ds.Salary,
+          :Emp_Ds.Bonus,
+          :Emp_Ds.Comm
+        );
+  on-error *all;
+    dsply 'err';
+  endmon;
 END-PROC;

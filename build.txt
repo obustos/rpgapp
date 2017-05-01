@@ -5,10 +5,14 @@ build:
   &INTOLIB:#&USER
   CRTSRCPF FILE(&INTOLIB/TMPSRC) RCDLEN(112)
   
+  //Create table with basic data
+  RUNSQLSTM SRCSTMF('&DIR/src/emptab.sql') COMMIT(*NONE) NAMING(*SQL)
+  
   //Create screen
   CPYFRMSTMF FROMSTMF('&DIR/src/employee.dspf') TOMBR('/QSYS.lib/&INTOLIB.lib/TMPSRC.file/employee.mbr') MBROPT(*ADD)
   CRTDSPF FILE(&INTOLIB/EMPLOYEE) SRCFILE(&INTOLIB/TMPSRC) SRCMBR(employee) REPLACE(*YES)
   
+  //Create programs
   CRTSQLRPGI OBJ(&INTOLIB/empdsp) SRCSTMF('&DIR/src/empdsp.sqlrpgle') COMMIT(*NONE) REPLACE(*YES) DBGVIEW(*SOURCE)
   CRTSQLRPGI OBJ(&INTOLIB/empnew) SRCSTMF('&DIR/src/empnew.sqlrpgle') COMMIT(*NONE) REPLACE(*YES) DBGVIEW(*SOURCE)
   
