@@ -29,22 +29,22 @@ Return;
 dcl-proc emp_create;
   dcl-s lexit ind inz(*off);
 
-  dow (lexit = *off);
-    exfmt newemp;
+  DOW (LEXIT = *OFF);
+    EXFMT NEWEMP;
 
-    select;
-      when (*in12);
-        lexit = *on;
-      other;
-        if (emp_validateinput());
-          //create new employee
-          emp_createrecord();
-          lexit = *on;
-        endif;
-    endsl;
-  enddo;
+    SELECT;
+      WHEN (*IN12);
+        LEXIT = *ON;
+      OTHER;
+        IF (EMP_VALIDATEINPUT());
+          //CREATE NEW EMPLOYEE
+          EMP_CREATERECORD();
+          LEXIT = *ON;
+        ENDIF;
+    ENDSL;
+  ENDDO;
 
-end-proc;
+END-PROC;
 
 Dcl-Proc EMP_ValidateInput;
   //Returns true if valid.
