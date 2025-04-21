@@ -26,25 +26,25 @@ EMP_Create();
 *InLR = *On;
 Return;
 
-Dcl-Proc EMP_Create;
-  Dcl-S lExit Ind Inz(*Off);
+dcl-proc emp_create;
+  dcl-s lexit ind inz(*off);
 
-  Dow (lExit = *Off);
-    Exfmt NEWEMP;
+  dow (lexit = *off);
+    exfmt newemp;
 
-    Select;
-      When (*In12);
-        lExit = *On;
-      Other;
-        If (EMP_ValidateInput());
-          //Create new Employee
-          EMP_CreateRecord();
-          lExit = *On;
-        ENDIF;
-    ENDSL;
-  ENDDO;
+    select;
+      when (*in12);
+        lexit = *on;
+      other;
+        if (emp_validateinput());
+          //create new employee
+          emp_createrecord();
+          lexit = *on;
+        endif;
+    endsl;
+  enddo;
 
-END-PROC;
+end-proc;
 
 Dcl-Proc EMP_ValidateInput;
   //Returns true if valid.
