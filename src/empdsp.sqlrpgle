@@ -42,22 +42,22 @@ Dcl-Proc EMP_Load;
 
   Dcl-S lSuccess Ind Inz(*On);
 
-  exec sql
-    select
-      empno,
-      firstnme,
-      midinit,
-      lastname,
-      workdept,
-      phoneno,
-      job,
-      sex,
-      salary,
-      bonus,
-      comm
-    into :emp_ds
-    from sample/employee
-    where empno = :pemp;
+  EXEC SQL
+    SELECT
+      EMPNO,
+      FIRSTNME,
+      MIDINIT,
+      LASTNAME,
+      WORKDEPT,
+      PHONENO,
+      JOB,
+      SEX,
+      SALARY,
+      BONUS,
+      COMM
+    INTO :EMP_DS
+    FROM SAMPLE/EMPLOYEE
+    WHERE EMPNO = :PEMP;
 
   lSuccess = (SQLSTATE = '00000');
 
