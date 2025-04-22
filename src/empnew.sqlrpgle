@@ -1,30 +1,30 @@
-**FREE
+**free
 
-Ctl-Opt DftActGrp(*No) ActGrp(*NEW);
+ctl-opt dftactgrp(*no) actgrp(*new);
 
-Dcl-F EMPLOYEE WorkStn;
+dcl-f employee workstn;
 
-Dcl-Ds Emp_Ds Qualified;
-  EMPNO     Char(6);
-  FirstName Varchar(12);
-  MidInit   Char(1);
-  LastName  Varchar(15);
-  WorkDept  Char(3);
-  PhoneExt  Char(4);
-  hiredate  Date;
-  Job       Char(8);
-  EdlLvl    Bindec(2) Inz(0); //ignore
-  Gender    Char(1);
-  DOB       Date;
-  Salary    Zoned(9:2);
-  Bonus     Zoned(9:2);
-  Comm      Zoned(9:2); //Commission
-End-Ds;
+dcl-ds emp_ds qualified;
+  empno     char(6);
+  firstname varchar(12);
+  midinit   char(1);
+  lastname  varchar(15);
+  workdept  char(3);
+  phoneext  char(4);
+  hiredate  date;
+  job       char(8);
+  edllvl    bindec(2) inz(0); //ignore
+  gender    char(1);
+  dob       date;
+  salary    zoned(9:2);
+  bonus     zoned(9:2);
+  comm      zoned(9:2); //commission
+end-ds;
 
-EMP_Create();
+emp_create();
 
-*InLR = *On;
-Return;
+*inlr = *on;
+return;
 
 dcl-proc emp_create;
   dcl-s lexit ind inz(*off);
