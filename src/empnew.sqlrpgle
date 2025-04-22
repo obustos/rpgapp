@@ -46,29 +46,29 @@ dcl-proc emp_create;
 
 end-proc;
 
-Dcl-Proc EMP_ValidateInput;
-  //Returns true if valid.
-  Dcl-Pi *N Ind End-Pi;
+dcl-proc emp_validateinput;
+  //returns true if valid.
+  dcl-pi *n ind end-pi;
 
-  Emp_Ds.EMPNO = EMPNO;
-  Emp_Ds.FirstName = %Trim(FIRSTNAME);
-  Emp_Ds.MidInit = MIDDLEINIT;
-  Emp_Ds.LastName = %Trim(LASTNAME);
-  Emp_Ds.WorkDept = EMPDEPT;
-  Emp_Ds.PhoneExt = EMPEXT;
-  Emp_Ds.Job = EMPJOB;
-  Emp_Ds.Gender = NEWGENDER;
+  emp_ds.empno = empno;
+  emp_ds.firstname = %trim(firstname);
+  emp_ds.midinit = middleinit;
+  emp_ds.lastname = %trim(lastname);
+  emp_ds.workdept = empdept;
+  emp_ds.phoneext = empext;
+  emp_ds.job = empjob;
+  emp_ds.gender = newgender;
   
-  Emp_Ds.Salary = %Dec(EMPBASE:9:2);
-  Emp_Ds.Bonus = %Dec(EMPBONUS:9:2);
-  Emp_Ds.Comm = %Dec(EMPCOMM:9:2);
+  emp_ds.salary = %dec(empbase:9:2);
+  emp_ds.bonus = %dec(empbonus:9:2);
+  emp_ds.comm = %dec(empcomm:9:2);
 
-  Emp_Ds.hiredate = %Date();
-  Emp_Ds.DOB = %Date();
+  emp_ds.hiredate = %date();
+  emp_ds.dob = %date();
 
-  Return *On;
-END-PROC;
+  return *on;
+end-proc;
 
-Dcl-Proc EMP_CreateRecord;
-  //Insert data into SAMPLE/EMPLOYEE
-END-PROC;
+dcl-proc emp_createrecord;
+  //insert data into sample/employee
+end-proc;
